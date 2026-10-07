@@ -320,8 +320,9 @@ nav.main a:hover {
 
 @media (max-width: 700px) {
   .heroText {
-    top: clamp(5.5rem, 15vh, 8rem);
+    top: 50%;
     bottom: auto;
+    transform: translateY(-50%);
   }
   .heroText h1 {
     font-size: clamp(2.9rem, 12vw, 4.4rem);

@@ -14,7 +14,7 @@ export const CURRENCY = "KES";
 export const products = [
   {
     id: "tee-ember",
-    name: "Altitude Training Tee",
+    name: "Voltage Training Tee",
     price: 1800,
     blurb: "Breathable cotton blend. Built for the climb.",
     sizes: ["S", "M", "L", "XL", "XXL"],
@@ -53,8 +53,8 @@ export const products = [
     tone: ["#1a2436", "#2b8bff"],
   },
   {
-    id: "tote-altitude",
-    name: "Altitude Kit Tote",
+    id: "tote-voltage",
+    name: "Voltage Kit Tote",
     price: 1200,
     blurb: "Heavy canvas gym and shopping tote.",
     sizes: ["One size"],

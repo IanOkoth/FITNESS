@@ -59,7 +59,7 @@ export default function Shop() {
   return (
     <section className="sec shop" id="shop">
       <div className="wrap">
-        <h2>Altitude merch</h2>
+        <h2>Voltage Fitness merch</h2>
         <p className="shopIntro">
           Train in the kit. Every piece is built for the work — ships across
           Kenya and worldwide.

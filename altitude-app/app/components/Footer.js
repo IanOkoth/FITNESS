@@ -3,16 +3,14 @@ export default function Footer() {
     <footer>
       <div className="wrap">
         <div>
-          <strong style={{ color: "var(--sand)" }}>ALTITUDE</strong>
+          <strong style={{ color: "var(--sand)" }}>VOLTAGE FITNESS</strong>
           <br />
           Personal training from Kenya, for the world.
-          <br />
-          Placeholder brand. Replace with the client&apos;s name.
         </div>
         <div>
           hello@example.com
           <br />
-          +254 700 000000
+          +254 741 044318
           <br />
           Instagram, YouTube, TikTok
         </div>

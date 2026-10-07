@@ -57,12 +57,12 @@ export default function Hero() {
         <div className="bgword" ref={bgwordRef} aria-hidden="true">
           <div className="bgwordTrack bgwordTrack--left">
             {Array.from({ length: 8 }).map((_, i) => (
-              <span key={`l${i}`}>Built at altitude.&nbsp;</span>
+              <span key={`l${i}`}>Built on voltage.&nbsp;</span>
             ))}
           </div>
           <div className="bgwordTrack bgwordTrack--right">
             {Array.from({ length: 8 }).map((_, i) => (
-              <span key={`r${i}`}>Built at altitude.&nbsp;</span>
+              <span key={`r${i}`}>Built on voltage.&nbsp;</span>
             ))}
           </div>
         </div>

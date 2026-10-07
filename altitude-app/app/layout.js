@@ -2,7 +2,7 @@ import "./globals.css";
 import { CartProvider } from "./components/CartProvider";
 
 export const metadata = {
-  title: "Altitude | Personal Training from Kenya",
+  title: "Voltage Fitness | Personal Training from Kenya",
   description:
     "Personal training from the Kenyan highlands, built around your goals, your schedule and your life, wherever you are. Strength, fat loss, running, mobility — online or in person.",
 };

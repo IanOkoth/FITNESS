@@ -16,7 +16,7 @@ export default function CartDrawer() {
     const lines = items
       .map((l) => `• ${l.qty} × ${l.name} (${l.size}) — ${fmtPrice(l.price * l.qty)}`)
       .join("\n");
-    const msg = `Hi, I'd like to order some Altitude merch:\n\n${lines}\n\nTotal: ${fmtPrice(
+    const msg = `Hi, I'd like to order some Voltage Fitness merch:\n\n${lines}\n\nTotal: ${fmtPrice(
       subtotal
     )}`;
     window.open(waLink(msg), "_blank", "noopener");

@@ -4,8 +4,8 @@ export default function Header() {
   return (
     <header className="top">
       <div className="wrap">
-        <a className="logo" href="#top" aria-label="Altitude home">
-          <i></i>ALTITUDE
+        <a className="logo" href="#top" aria-label="Voltage Fitness home">
+          <i></i>VOLTAGE
         </a>
         <nav className="main" aria-label="Main">
           <a href="#programs">Programs</a>

@@ -3,7 +3,7 @@
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 
 const CartContext = createContext(null);
-const STORAGE_KEY = "altitude-cart";
+const STORAGE_KEY = "voltage-cart";
 const lineId = (id, size) => `${id}__${size}`;
 
 export function CartProvider({ children }) {

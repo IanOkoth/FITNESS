@@ -12,7 +12,7 @@ export default function Stories() {
           </figure>
           <figure>
             <blockquote>
-              Working with the Altitude team has been amazing. The programming is tough but tailored perfectly to my running goals. Dropped my 10k time by 4 minutes!
+              Working with the Voltage Fitness team has been amazing. The programming is tough but tailored perfectly to my running goals. Dropped my 10k time by 4 minutes!
             </blockquote>
             <figcaption>Sarah J., USA</figcaption>
           </figure>
