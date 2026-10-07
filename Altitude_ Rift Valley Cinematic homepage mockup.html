@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Altitude | Rift Valley Cinematic homepage mockup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --night:#14100d;
+  --ash:#211a15;
+  --coal:#2d241d;
+  --sand:#e8d9bf;
+  --sand-dim:#b9a98f;
+  --ember:#d4541c;
+  --gold:#f2b134;
+  --display:'Big Shoulders Display','Oswald',Impact,'Arial Narrow',sans-serif;
+  --body:'DM Sans','Helvetica Neue',Arial,sans-serif;
+  color-scheme:dark;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--night:#14100d}}
+:root[data-theme="dark"]{--night:#14100d}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 80px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--night);color:var(--sand);font-family:var(--body);font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:4px}
+h1,h2,h3{font-family:var(--display);font-weight:900;text-transform:uppercase;line-height:.92;letter-spacing:-.005em;margin:0}
+h2{font-size:clamp(2.6rem,7vw,5.8rem)}
+p{margin:0}
+.wrap{width:min(1200px,100% - 2.5rem);margin-inline:auto}
+section{position:relative}
+.sec{padding:clamp(4.5rem,11vw,9rem) 0}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:.6rem;padding:.95rem 1.6rem;border-radius:999px;border:0;font:700 1rem var(--body);cursor:pointer;text-decoration:none;transition:transform .2s,background .2s,color .2s}
+.btn-primary{background:var(--ember);color:#fff}
+.btn-primary:hover{background:var(--gold);color:var(--night);transform:translateY(-2px)}
+.btn-ghost{background:rgba(232,217,191,.12);color:var(--sand);backdrop-filter:blur(8px);box-shadow:inset 0 0 0 1.5px rgba(232,217,191,.45)}
+.btn-ghost:hover{background:var(--sand);color:var(--night)}
+.btn-sm{padding:.6rem 1.15rem;font-size:.95rem}
+
+/* header */
+header.top{position:fixed;inset:0 0 auto 0;z-index:50;padding-top:env(safe-area-inset-top,0px);background:linear-gradient(to bottom,rgba(20,16,13,.85),rgba(20,16,13,0))}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:72px}
+.logo{font-family:var(--display);font-weight:900;font-size:1.7rem;letter-spacing:.04em;text-decoration:none;display:flex;align-items:center;gap:.5rem}
+.logo i{display:block;width:0;height:0;border-left:11px solid transparent;border-right:11px solid transparent;border-bottom:18px solid var(--ember)}
+nav.main{display:flex;gap:1.8rem}
+nav.main a{text-decoration:none;font-weight:500;font-size:.98rem;opacity:.9}
+nav.main a:hover{color:var(--gold)}
+.tools{display:flex;align-items:center;gap:.7rem}
+.lang{position:relative}
+.lang select{appearance:none;background:rgba(232,217,191,.12);color:var(--sand);border:1.5px solid rgba(232,217,191,.4);border-radius:999px;padding:.55rem 2rem .55rem 1rem;font:500 .95rem var(--body);cursor:pointer}
+.lang select option{background:var(--ash);color:var(--sand)}
+.lang::after{content:"";position:absolute;right:.9rem;top:50%;width:6px;height:6px;border-right:2px solid var(--sand);border-bottom:2px solid var(--sand);transform:translateY(-70%) rotate(45deg);pointer-events:none}
+@media (max-width:900px){nav.main{display:none}}
+
+/* hero */
+.hero{height:260vh;background:var(--night)}
+.stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+.bgword{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:0 4vw;font-family:var(--display);font-weight:900;text-transform:uppercase;line-height:.84;font-size:clamp(5.5rem,24vw,23rem);color:var(--ember);opacity:0;will-change:opacity,transform}
+.frame{position:absolute;inset:0;will-change:clip-path;background:#000}
+.frame svg{position:absolute;inset:0;width:100%;height:100%}
+.frame::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(20,16,13,.88) 0%,rgba(20,16,13,.15) 55%,rgba(20,16,13,.35) 100%)}
+.heroText{position:absolute;left:0;right:0;bottom:clamp(2rem,8vh,5rem);z-index:5}
+.heroText h1{font-size:clamp(3.6rem,12.5vw,11rem);max-width:12ch;text-wrap:balance}
+.heroText p{max-width:46ch;margin:1.4rem 0 1.8rem;font-size:clamp(1.05rem,2vw,1.3rem);color:var(--sand)}
+.ctaRow{display:flex;flex-wrap:wrap;gap:.8rem}
+.caption{position:absolute;left:0;right:0;bottom:clamp(1.2rem,5vh,2.6rem);text-align:center;font-size:.95rem;color:var(--sand-dim);opacity:0;z-index:5}
+.sunrise{animation:rise 3.8s cubic-bezier(.2,.7,.2,1) both}
+@keyframes rise{from{transform:translateY(320px)}to{transform:none}}
+.reveal-in{animation:fadeUp 1s .9s both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+
+/* proof */
+.proof{background:var(--ember);color:var(--night);padding:1.6rem 0}
+.proof p{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:clamp(1.5rem,3.6vw,2.6rem);line-height:1.05;text-align:center}
+
+/* vision */
+.vision{background:var(--night)}
+.vision .grid{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(2rem,6vw,6rem);align-items:end}
+.vision p.lead{margin-top:1.8rem;max-width:52ch;color:var(--sand-dim);font-size:1.15rem}
+.clock{border-left:3px solid var(--gold);padding-left:1.6rem;display:grid;gap:1.4rem}
+.clock div span{display:block;color:var(--sand-dim);font-size:.95rem}
+.clock div strong{display:block;font-family:var(--display);font-weight:900;font-size:clamp(3.4rem,8vw,6rem);line-height:.9;color:var(--sand)}
+.clock div:first-child strong{color:var(--gold)}
+@media (max-width:820px){.vision .grid{grid-template-columns:1fr}}
+
+/* programs */
+.programs{background:var(--ash)}
+.progList{margin-top:3rem;border-top:1px solid rgba(232,217,191,.2)}
+.prog{display:grid;grid-template-columns:1.1fr 1.4fr auto;gap:1.5rem;align-items:center;padding:1.8rem 0;border-bottom:1px solid rgba(232,217,191,.2);position:relative;transition:padding .3s}
+.prog::before{content:"";position:absolute;left:0;bottom:-1px;height:3px;width:0;background:var(--ember);transition:width .4s}
+.prog:hover::before{width:100%}
+.prog:hover{padding-left:.8rem}
+.prog h3{font-size:clamp(2rem,4.6vw,3.6rem)}
+.prog p{color:var(--sand-dim);max-width:46ch}
+.prog em{font-style:normal;font-weight:700;color:var(--gold);white-space:nowrap}
+@media (max-width:820px){.prog{grid-template-columns:1fr;gap:.5rem}}
+
+/* builder */
+.build{background:var(--night)}
+.buildGrid{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(1.5rem,4vw,4rem);margin-top:3rem;align-items:start}
+.q{margin-bottom:2rem}
+.q h3{font-size:1.7rem;margin-bottom:.8rem;color:var(--sand)}
+.chips{display:flex;flex-wrap:wrap;gap:.6rem}
+.chip{padding:.7rem 1.2rem;border-radius:999px;border:1.5px solid rgba(232,217,191,.35);background:transparent;color:var(--sand);font:500 1rem var(--body);cursor:pointer;transition:all .2s}
+.chip:hover{border-color:var(--gold)}
+.chip[aria-pressed="true"]{background:var(--gold);border-color:var(--gold);color:var(--night);font-weight:700}
+.plan{position:sticky;top:96px;background:var(--sand);color:var(--night);border-radius:6px;padding:clamp(1.4rem,3vw,2.2rem);box-shadow:12px 12px 0 var(--ember)}
+.plan h3{font-size:clamp(2.2rem,4vw,3.2rem);color:var(--night)}
+.plan .meta{margin:.6rem 0 1.2rem;color:#5a4a3a;font-size:.98rem}
+.plan ul{list-style:none;margin:0 0 1.5rem;padding:0}
+.plan li{display:flex;justify-content:space-between;gap:1rem;padding:.7rem 0;border-top:1px solid rgba(20,16,13,.18);animation:pop .35s both}
+.plan li b{font-family:var(--display);font-weight:900;font-size:1.3rem;text-transform:uppercase;min-width:3.2rem}
+.plan li span{text-align:right}
+@keyframes pop{from{opacity:0;transform:translateX(10px)}to{opacity:1;transform:none}}
+.plan .actions{display:grid;gap:.6rem}
+.plan .btn-ghost{color:var(--night);background:transparent;box-shadow:inset 0 0 0 1.5px var(--night)}
+.plan .btn-ghost:hover{background:var(--night);color:var(--sand)}
+@media (max-width:900px){.buildGrid{grid-template-columns:1fr}.plan{position:static}}
+
+/* videos */
+.videos{background:var(--ash);overflow:hidden}
+.vhead{display:flex;justify-content:space-between;align-items:end;gap:1.5rem;flex-wrap:wrap}
+.vhead p{color:var(--sand-dim);margin-top:1rem}
+.arrows{display:flex;gap:.6rem}
+.arrow{width:52px;height:52px;border-radius:50%;border:1.5px solid var(--sand);background:transparent;color:var(--sand);cursor:pointer;display:grid;place-items:center;transition:all .2s}
+.arrow:hover{background:var(--sand);color:var(--night)}
+.track{display:flex;gap:1.1rem;overflow-x:auto;scroll-snap-type:x mandatory;padding:2.2rem max(1.25rem,calc((100% - 1200px)/2)) 1rem;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.track::-webkit-scrollbar{display:none}
+.tile{flex:0 0 min(300px,72vw);aspect-ratio:4/5.4;position:relative;border:0;border-radius:6px;overflow:hidden;scroll-snap-align:center;cursor:pointer;padding:0;color:var(--sand);text-align:left;background:#000}
+.tile svg{position:absolute;inset:0;width:100%;height:100%;transition:transform .6s}
+.tile:hover svg{transform:scale(1.06)}
+.tile::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(20,16,13,.9),transparent 55%)}
+.tile .tt{position:absolute;left:1rem;right:1rem;bottom:1.2rem;z-index:2}
+.tile .tt b{display:block;font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:1.8rem;line-height:1}
+.tile .tt span{font-size:.9rem;color:var(--sand-dim)}
+.tile .play{position:absolute;top:1rem;right:1rem;z-index:2;width:42px;height:42px;border-radius:50%;background:rgba(20,16,13,.6);display:grid;place-items:center}
+.tile .bar{position:absolute;left:0;bottom:0;height:4px;background:var(--ember);z-index:3;animation:bar 9s linear infinite}
+@keyframes bar{from{width:0}to{width:100%}}
+.prog-line{height:3px;background:rgba(232,217,191,.2);width:min(1200px,100% - 2.5rem);margin:1rem auto 0}
+.prog-line i{display:block;height:100%;width:20%;background:var(--gold);transition:width .15s}
+dialog{border:0;padding:0;background:transparent;max-width:min(960px,94vw);width:100%;color:var(--sand)}
+dialog::backdrop{background:rgba(10,8,6,.9)}
+.lb{position:relative;aspect-ratio:16/9;border-radius:6px;overflow:hidden;background:#000}
+.lb svg{position:absolute;inset:0;width:100%;height:100%}
+.lb .note{position:absolute;inset:auto 0 0 0;padding:1.2rem;background:linear-gradient(to top,rgba(0,0,0,.8),transparent);z-index:2}
+.lbclose{margin-top:.8rem;float:right}
+
+/* how */
+.how{background:var(--night)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.2rem,3vw,3rem);margin-top:3.2rem;counter-reset:s}
+.step{border-top:3px solid var(--ember);padding-top:1.2rem;counter-increment:s}
+.step::before{content:counter(s);font-family:var(--display);font-weight:900;font-size:5rem;line-height:.9;color:var(--gold);display:block}
+.step h3{font-size:2rem;margin:.4rem 0 .6rem}
+.step p{color:var(--sand-dim)}
+@media (max-width:820px){.steps{grid-template-columns:1fr}}
+
+/* stories */
+.stories{background:var(--sand);color:var(--night)}
+.stories h2{color:var(--night)}
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.5rem,3vw,3rem);margin-top:3rem;align-items:start}
+.quotes figure{margin:0}
+.quotes figure:nth-child(2){margin-top:3rem}
+.quotes blockquote{margin:0;font-family:var(--display);font-weight:700;font-size:clamp(1.6rem,2.6vw,2.2rem);line-height:1.08;text-transform:none}
+.quotes figcaption{margin-top:1rem;font-size:.98rem;color:#5a4a3a}
+.sample{margin-top:2.4rem;font-size:.9rem;color:#6b5a48}
+@media (max-width:820px){.quotes{grid-template-columns:1fr}.quotes figure:nth-child(2){margin-top:0}}
+
+/* faq */
+.faq{background:var(--night)}
+.faqList{margin-top:2.4rem;max-width:860px}
+details{border-bottom:1px solid rgba(232,217,191,.22);padding:1.2rem 0}
+summary{cursor:pointer;font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:clamp(1.5rem,3vw,2.2rem);list-style:none;display:flex;justify-content:space-between;gap:1rem}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--ember);transition:transform .25s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{margin-top:.8rem;color:var(--sand-dim);max-width:60ch}
+
+/* contact */
+.contact{background:linear-gradient(180deg,var(--ember) 0%,#a83a10 100%);color:#fff7ea}
+.contactGrid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(2rem,5vw,5rem);align-items:start}
+.contact h2{font-size:clamp(3rem,8vw,7rem)}
+.contact .sub{margin-top:1.4rem;max-width:40ch;font-size:1.15rem}
+form{display:grid;gap:1rem;background:var(--night);color:var(--sand);padding:clamp(1.3rem,3vw,2.2rem);border-radius:6px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+label{display:grid;gap:.35rem;font-size:.95rem;font-weight:500}
+input,select,textarea{width:100%;background:var(--ash);color:var(--sand);border:1.5px solid rgba(232,217,191,.25);border-radius:6px;padding:.8rem .9rem;font:400 1rem var(--body)}
+input:focus,select:focus,textarea:focus{border-color:var(--gold);outline:none;box-shadow:0 0 0 3px rgba(242,177,52,.3)}
+.hp{position:absolute;left:-9999px;opacity:0}
+.ok{display:none;padding:1rem 1.2rem;border-left:4px solid var(--gold);background:var(--ash)}
+.ok.show{display:block}
+@media (max-width:820px){.contactGrid,.row2{grid-template-columns:1fr}}
+
+/* footer */
+footer{background:#0d0a08;padding:3rem 0 5rem;color:var(--sand-dim);font-size:.95rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1.5rem}
+
+/* whatsapp */
+.wa{position:fixed;right:max(1rem,env(safe-area-inset-right,0px));bottom:calc(1rem + env(safe-area-inset-bottom,0px));z-index:60;display:flex;align-items:center;gap:.6rem;background:#25d366;color:#07351b;text-decoration:none;font-weight:700;padding:.85rem 1.2rem .85rem .9rem;border-radius:999px;box-shadow:0 10px 30px rgba(0,0,0,.45)}
+.wa svg{width:28px;height:28px;fill:currentColor}
+.wa::before{content:"";position:absolute;inset:0;border-radius:inherit;border:2px solid #25d366;animation:ping 2.4s infinite}
+@keyframes ping{0%{transform:scale(1);opacity:.8}100%{transform:scale(1.45);opacity:0}}
+@media (max-width:560px){.wa span{display:none}.wa{padding:.85rem}}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .sunrise,.reveal-in,.tile .bar,.wa::before,.plan li{animation:none}
+  *{transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Altitude home"><i></i>ALTITUDE</a>
+    <nav class="main" aria-label="Main">
+      <a href="#programs" data-i18n="nav_programs">Programs</a>
+      <a href="#build" data-i18n="nav_build">Build my plan</a>
+      <a href="#videos" data-i18n="nav_videos">Videos</a>
+      <a href="#contact" data-i18n="nav_contact">Contact</a>
+    </nav>
+    <div class="tools">
+      <div class="lang">
+        <select id="lang" aria-label="Language">
+          <option value="en">English</option>
+          <option value="fr">Français</option>
+          <option value="de">Deutsch</option>
+          <option value="sw">Kiswahili</option>
+        </select>
+      </div>
+      <a class="btn btn-primary btn-sm" href="#contact" data-i18n="cta_book">Book</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO: scene shrinks into a frame on scroll -->
+<section class="hero" id="hero">
+  <div class="stick">
+    <div class="bgword" id="bgword" aria-hidden="true"><span data-i18n="frame_word">Built at altitude.</span></div>
+    <div class="frame" id="frame"></div>
+    <div class="heroText" id="heroText">
+      <div class="wrap reveal-in">
+        <h1 data-i18n="hero_h1">Strength has no time zone.</h1>
+        <p data-i18n="hero_sub">Personal training from the Kenyan highlands, built around your goals, your schedule and your life, wherever you are.</p>
+        <div class="ctaRow">
+          <a class="btn btn-primary" href="#contact" data-i18n="hero_cta">Book a free consultation</a>
+          <a class="btn btn-ghost" id="heroWa" href="#" data-i18n="hero_wa">Message on WhatsApp</a>
+        </div>
+      </div>
+    </div>
+    <p class="caption" id="caption">Placeholder for looping hero footage. Rift Valley, Kenya.</p>
+  </div>
+</section>
+
+<div class="proof"><div class="wrap"><p>Training clients in Kenya, Germany, France, Canada, the UK, the UAE and Australia</p></div></div>
+
+<!-- VISION -->
+<section class="sec vision" id="vision">
+  <div class="wrap grid">
+    <div>
+      <h2 data-i18n="vision_h">Train like the sun is already up.</h2>
+      <p class="lead" data-i18n="vision_p">Every program starts with one conversation. We learn what you want, what your week allows, and what equipment you have. Then we build sessions that fit, live, from Kenya, to wherever you are.</p>
+    </div>
+    <div class="clock" aria-live="off">
+      <div><span>Nairobi right now</span><strong id="tNbo">--:--</strong></div>
+      <div><span id="tYouLbl">Where you are</span><strong id="tYou">--:--</strong></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section class="sec programs" id="programs">
+  <div class="wrap">
+    <h2 data-i18n="prog_h">Sessions built around you</h2>
+    <div class="progList">
+      <div class="prog"><h3>Strength and muscle</h3><p>Progressive lifting for gym or home. Technique first, then load.</p><em>Online or in person</em></div>
+      <div class="prog"><h3>Fat loss and conditioning</h3><p>Intervals, strength and habits that fit a real schedule.</p><em>Online or in person</em></div>
+      <div class="prog"><h3>Running and endurance</h3><p>Train with the method that shaped Kenyan distance running, adapted to your level.</p><em>Online or hybrid</em></div>
+      <div class="prog"><h3>Mobility and recovery</h3><p>Move without pain. Built for desk workers, returning athletes and travelers.</p><em>Online</em></div>
+    </div>
+  </div>
+</section>
+
+<!-- BUILDER -->
+<section class="sec build" id="build">
+  <div class="wrap">
+    <h2 data-i18n="build_h">Build your program</h2>
+    <p style="margin-top:1.2rem;color:var(--sand-dim);max-width:54ch" data-i18n="build_p">Four quick choices. See your starting plan, then send it straight to your coach.</p>
+    <div class="buildGrid">
+      <div>
+        <div class="q"><h3>Your goal</h3><div class="chips" data-key="goal">
+          <button class="chip" data-v="strength" aria-pressed="true">Build strength</button>
+          <button class="chip" data-v="fat" aria-pressed="false">Lose fat</button>
+          <button class="chip" data-v="run" aria-pressed="false">Run farther</button>
+          <button class="chip" data-v="move" aria-pressed="false">Move better</button></div></div>
+        <div class="q"><h3>Your level</h3><div class="chips" data-key="level">
+          <button class="chip" data-v="Beginner" aria-pressed="true">Beginner</button>
+          <button class="chip" data-v="Intermediate" aria-pressed="false">Intermediate</button>
+          <button class="chip" data-v="Advanced" aria-pressed="false">Advanced</button></div></div>
+        <div class="q"><h3>Days per week</h3><div class="chips" data-key="days">
+          <button class="chip" data-v="2" aria-pressed="false">2</button>
+          <button class="chip" data-v="3" aria-pressed="true">3</button>
+          <button class="chip" data-v="4" aria-pressed="false">4</button>
+          <button class="chip" data-v="5" aria-pressed="false">5</button></div></div>
+        <div class="q"><h3>Session format</h3><div class="chips" data-key="format">
+          <button class="chip" data-v="online" aria-pressed="true">Live online</button>
+          <button class="chip" data-v="inperson" aria-pressed="false">In person, Nairobi</button>
+          <button class="chip" data-v="hybrid" aria-pressed="false">Both</button></div></div>
+      </div>
+      <aside class="plan" aria-live="polite">
+        <h3 id="planTitle">Strength plan</h3>
+        <p class="meta" id="planMeta"></p>
+        <ul id="planList"></ul>
+        <div class="actions">
+          <a class="btn btn-primary" id="planWa" href="#" target="_blank" rel="noopener">Send this plan on WhatsApp</a>
+          <button class="btn btn-ghost" id="planForm" type="button">Add it to my request form</button>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEOS -->
+<section class="sec videos" id="videos">
+  <div class="wrap vhead">
+    <div><h2 data-i18n="vid_h">See a session</h2><p data-i18n="vid_p">Short clips from real training. Swipe or use the arrows.</p></div>
+    <div class="arrows">
+      <button class="arrow" id="prev" aria-label="Previous clips"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+      <button class="arrow" id="next" aria-label="Next clips"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
+    </div>
+  </div>
+  <div class="track" id="track" tabindex="0" aria-label="Training video clips"></div>
+  <div class="prog-line"><i id="vprog"></i></div>
+</section>
+<dialog id="lightbox" aria-label="Video player">
+  <div class="lb" id="lbBody"></div>
+  <button class="btn btn-primary btn-sm lbclose" id="lbClose">Close</button>
+</dialog>
+
+<!-- HOW -->
+<section class="sec how" id="how">
+  <div class="wrap">
+    <h2 data-i18n="how_h">From first message to first session</h2>
+    <div class="steps">
+      <div class="step"><h3>Talk</h3><p>A free 20-minute call or chat. You tell us your goal, your week and your equipment.</p></div>
+      <div class="step"><h3>Design</h3><p>Within 48 hours you get a plan shaped around you, with times that work in your time zone.</p></div>
+      <div class="step"><h3>Train</h3><p>Live sessions with your coach, with adjustments every week as you improve.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- STORIES -->
+<section class="sec stories" id="stories">
+  <div class="wrap">
+    <h2 data-i18n="test_h">Clients on four continents</h2>
+    <div class="quotes">
+      <figure><blockquote>I train at 6 a.m. in Munich with a coach who is already in the sunshine. It changed how I start my day.</blockquote><figcaption>Anna K., Germany</figcaption></figure>
+      <figure><blockquote>Ten kilos down and my first half marathon finished, all from a living room in Toronto.</blockquote><figcaption>Daniel O., Canada</figcaption></figure>
+      <figure><blockquote>Chaque séance est pensée pour moi. Je n'ai jamais eu ce niveau d'attention.</blockquote><figcaption>Amélie R., France</figcaption></figure>
+    </div>
+    <p class="sample">Sample testimonials for the mockup. Replace with real client stories and permission before launch.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec faq" id="faq">
+  <div class="wrap">
+    <h2 data-i18n="faq_h">Questions people ask first</h2>
+    <div class="faqList">
+      <details><summary>What if we are in different time zones?</summary><p>We schedule around you. Sessions run early morning and evening Nairobi time to suit Europe, the Middle East and the Americas.</p></details>
+      <details><summary>Do I need a gym?</summary><p>No. We build around what you have, from a full gym to a pair of dumbbells or just a floor.</p></details>
+      <details><summary>How does payment work?</summary><p>Pay by card, PayPal, bank transfer or M-Pesa. You can switch or pause your plan at any time.</p></details>
+      <details><summary>Can I train in person in Kenya?</summary><p>Yes. In-person sessions are available in Nairobi, and many clients mix online and in-person when they visit.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="sec contact" id="contact">
+  <div class="wrap contactGrid">
+    <div>
+      <h2 data-i18n="contact_h">Start with a conversation</h2>
+      <p class="sub" data-i18n="contact_p">Tell us where you are and where you want to be. You will get a reply within 24 hours.</p>
+    </div>
+    <form id="form" novalidate>
+      <div class="row2">
+        <label><span data-i18n="f_name">Full name</span><input name="name" required autocomplete="name"></label>
+        <label><span data-i18n="f_email">Email</span><input name="email" type="email" required autocomplete="email"></label>
+      </div>
+      <div class="row2">
+        <label>WhatsApp number<input name="phone" type="tel" placeholder="+49 170 0000000" autocomplete="tel"></label>
+        <label><span data-i18n="f_country">Country</span><input name="country" autocomplete="country-name"></label>
+      </div>
+      <div class="row2">
+        <label><span data-i18n="f_goal">Your goal</span>
+          <select name="goal" id="fGoal"><option value="strength">Build strength</option><option value="fat">Lose fat</option><option value="run">Run farther</option><option value="move">Move better</option></select></label>
+        <label>Format
+          <select name="format" id="fFormat"><option value="online">Live online</option><option value="inperson">In person, Nairobi</option><option value="hybrid">Both</option></select></label>
+      </div>
+      <label>Message<textarea name="message" id="fMsg" rows="4" placeholder="Anything we should know?"></textarea></label>
+      <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button class="btn btn-primary" type="submit" data-i18n="f_send">Send my request</button>
+      <p class="ok" id="ok" role="status" data-i18n="f_ok">Request received. Your coach will reply within 24 hours.</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><strong style="color:var(--sand)">ALTITUDE</strong><br>Personal training from Kenya, for the world.<br>Placeholder brand. Replace with the client's name.</div>
+    <div>hello@example.com<br>+254 700 000000<br>Instagram, YouTube, TikTok</div>
+    <div>Privacy policy<br>Terms<br>Cookie settings</div>
+  </div>
+</footer>
+
+<a class="wa" id="waFloat" href="#" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.200 8.200 0 1 1 12 20.200z"/><path d="M16.600 14.200c-.2-.1-1.400-.7-1.600-.8-.2-.1-.4-.1-.5.1l-.8 1c-.1.2-.3.2-.5.1a6.700 6.700 0 0 1-3.300-2.900c-.2-.4.2-.4.7-1.300.1-.2 0-.3 0-.4l-.7-1.700c-.2-.5-.4-.4-.5-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.200s.9 2.500 1 2.700c.1.200 1.800 2.800 4.500 3.900 1.700.7 2.300.8 3.200.6.500-.1 1.400-.6 1.600-1.200.2-.6.2-1.100.1-1.200-.1-.1-.2-.2-.5-.3z"/></svg>
+  <span>WhatsApp</span>
+</a>
+
+<script>
+/* ---------- config ---------- */
+const WA_NUMBER = "254700000000"; // placeholder
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ---------- SVG scenes (stand-ins for real footage) ---------- */
+function scene(u, o){
+  const runner = o.runner == null ? "" : `
+    <g transform="translate(${o.runner},650)" stroke="#0d0a08" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <circle cx="0" cy="0" r="10" fill="#0d0a08"/>
+      <path d="M0 14 L-8 56"/><path d="M-2 24 L-26 40 L-12 54"/><path d="M-2 24 L20 34 L34 24"/>
+      <path d="M-8 56 L14 76 L8 104"/><path d="M-8 56 L-34 76 L-52 62"/>
+    </g>`;
+  const tree = o.tree == null ? "" : `
+    <g fill="#0d0a08" transform="translate(${o.tree},0)">
+      <path d="M0 640 C-4 590 6 560 24 520 L34 524 C20 560 16 592 18 640Z"/>
+      <ellipse cx="30" cy="506" rx="160" ry="26"/><ellipse cx="-50" cy="530" rx="90" ry="18"/><ellipse cx="120" cy="528" rx="80" ry="16"/>
+    </g>`;
+  return `<svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="s${u}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${o.sky[0]}"/><stop offset=".55" stop-color="${o.sky[1]}"/><stop offset="1" stop-color="${o.sky[2]}"/></linearGradient>
+      <radialGradient id="g${u}"><stop offset="0" stop-color="${o.sun}" stop-opacity=".85"/><stop offset="1" stop-color="${o.sun}" stop-opacity="0"/></radialGradient>
+    </defs>
+    <rect width="1600" height="900" fill="url(#s${u})"/>
+    <g class="${o.rise ? "sunrise" : ""}"><circle cx="${o.sx}" cy="${o.sy}" r="360" fill="url(#g${u})"/><circle cx="${o.sx}" cy="${o.sy}" r="96" fill="${o.sun}"/></g>
+    <path d="M0 560 C200 500 380 545 560 505 S900 470 1100 520 S1450 480 1600 520 V900 H0Z" fill="${o.r[0]}"/>
+    <path d="M0 645 C240 595 420 655 700 615 S1150 585 1350 635 S1550 612 1600 622 V900 H0Z" fill="${o.r[1]}"/>
+    ${tree}
+    <path d="M0 765 C300 725 600 785 900 745 S1400 725 1600 765 V900 H0Z" fill="${o.r[2]}"/>
+    ${runner}
+  </svg>`;
+}
+
+const heroScene = scene("h", {sky:["#2a1a2e","#b8431a","#f2b134"], sun:"#ffd36b", sx:900, sy:520, r:["#6b2f22","#44201a","#1d1210"], tree:1080, runner:430, rise:true});
+document.getElementById("frame").innerHTML = heroScene;
+
+const clips = [
+  {t:"Dawn hill run", d:"12 sec", o:{sky:["#2a1a2e","#b8431a","#f2b134"], sun:"#ffd36b", sx:700, sy:500, r:["#6b2f22","#44201a","#1d1210"], runner:900, tree:260}},
+  {t:"Sprint intervals", d:"9 sec", o:{sky:["#1b2338","#7a3a46","#e07a3a"], sun:"#ffb06b", sx:1100, sy:540, r:["#40283a","#2c1b2b","#150e14"], runner:520}},
+  {t:"Strength at golden hour", d:"15 sec", o:{sky:["#23160f","#9a4a16","#f2b134"], sun:"#ffe08a", sx:500, sy:520, r:["#5c3217","#3a200f","#180e08"], tree:1150}},
+  {t:"Mobility flow", d:"10 sec", o:{sky:["#16262a","#4a6a5a","#e8c98a"], sun:"#f6e3a8", sx:850, sy:500, r:["#38503f","#263a2e","#101a14"], tree:320, runner:1100}},
+  {t:"Boxing conditioning", d:"8 sec", o:{sky:["#1a1210","#6a2418","#d4541c"], sun:"#ff8a4a", sx:1000, sy:520, r:["#4a1c14","#2e120e","#120806"], runner:700}},
+  {t:"Track session", d:"14 sec", o:{sky:["#2a1a2e","#a63a2a","#f2b134"], sun:"#ffc55a", sx:600, sy:530, r:["#5a2a2a","#3a1a1c","#170d0e"], runner:1250, tree:200}}
+];
+const track = document.getElementById("track");
+clips.forEach((c,i)=>{
+  const b = document.createElement("button");
+  b.className = "tile";
+  b.setAttribute("aria-label", `Play clip: ${c.t}, ${c.d}`);
+  b.innerHTML = scene("c"+i, c.o) +
+    `<span class="play"><svg width="16" height="16" viewBox="0 0 24 24" fill="#e8d9bf"><path d="M7 4l13 8-13 8z"/></svg></span>
+     <span class="tt"><b>${c.t}</b><span>${c.d}, placeholder clip</span></span><span class="bar"></span>`;
+  b.addEventListener("click", ()=>openLb(c,i));
+  track.appendChild(b);
+});
+const lb = document.getElementById("lightbox"), lbBody = document.getElementById("lbBody");
+function openLb(c,i){
+  lbBody.innerHTML = scene("l"+i, c.o) + `<div class="note"><strong>${c.t}</strong><br>The real video plays here with sound, in fullscreen.</div>`;
+  lb.showModal();
+}
+document.getElementById("lbClose").onclick = ()=>lb.close();
+lb.addEventListener("click", e=>{ if(e.target === lb) lb.close(); });
+const step = ()=> track.clientWidth * .7;
+document.getElementById("prev").onclick = ()=>track.scrollBy({left:-step(), behavior:"smooth"});
+document.getElementById("next").onclick = ()=>track.scrollBy({left: step(), behavior:"smooth"});
+const vprog = document.getElementById("vprog");
+function vp(){ const m = track.scrollWidth - track.clientWidth; const p = m > 0 ? track.scrollLeft / m : 0; vprog.style.width = (20 + p*80) + "%"; }
+track.addEventListener("scroll", vp, {passive:true}); vp();
+
+/* ---------- hero scroll: scene shrinks into a frame ---------- */
+const hero = document.getElementById("hero"), frame = document.getElementById("frame"),
+      bgword = document.getElementById("bgword"), heroText = document.getElementById("heroText"),
+      caption = document.getElementById("caption");
+const clamp = (n,a,b)=>Math.min(b,Math.max(a,n));
+function onScroll(){
+  const total = hero.offsetHeight - innerHeight;
+  const p = clamp(-hero.getBoundingClientRect().top / total, 0, 1);
+  const e = p*p*(3-2*p);                     // ease
+  const vw = innerWidth < 700 ? 8 : 26;       // side inset in vw at full shrink
+  const vh = innerWidth < 700 ? 22 : 15;
+  frame.style.clipPath = `inset(${e*vh}vh ${e*vw}vw ${e*vh}vh ${e*vw}vw round ${e*28}px)`;
+  heroText.style.opacity = clamp(1 - p*3.2, 0, 1);
+  heroText.style.pointerEvents = p > .3 ? "none" : "auto";
+  bgword.style.opacity = clamp((p-.1)*2, 0, 1);
+  bgword.style.transform = `scale(${1.08 - e*.08})`;
+  caption.style.opacity = clamp((p-.75)*4, 0, 1);
+}
+addEventListener("scroll", onScroll, {passive:true}); addEventListener("resize", onScroll); onScroll();
+
+/* ---------- time bridge ---------- */
+function tick(){
+  const now = new Date();
+  const f = tz => new Intl.DateTimeFormat([], {hour:"2-digit", minute:"2-digit", hour12:false, timeZone:tz}).format(now);
+  const local = Intl.DateTimeFormat().resolvedOptions().timeZone || undefined;
+  document.getElementById("tNbo").textContent = f("Africa/Nairobi");
+  document.getElementById("tYou").textContent = f(local);
+  document.getElementById("tYouLbl").textContent = "Where you are" + (local ? " (" + local.replace("_"," ") + ")" : "");
+}
+tick(); setInterval(tick, 30000);
+
+/* ---------- program builder ---------- */
+const state = {goal:"strength", level:"Beginner", days:"3", format:"online"};
+const goalName = {strength:"Strength", fat:"Fat loss", run:"Running", move:"Mobility"};
+const goalQ = {strength:"Build strength", fat:"Lose fat", run:"Run farther", move:"Move better"};
+const splits = {
+  strength:["Lower body strength","Upper body push and pull","Full body power","Core and mobility","Conditioning finisher"],
+  fat:["Intervals and circuits","Strength base","Hill or tempo cardio","Full body burn","Core and mobility"],
+  run:["Easy aerobic run","Hills or intervals","Strength for runners","Long run","Mobility and drills"],
+  move:["Mobility flow","Stability and balance","Functional strength","Core control","Posture and breathing"]
+};
+const dayNames = {2:["Tue","Sat"],3:["Mon","Wed","Sat"],4:["Mon","Tue","Thu","Sat"],5:["Mon","Tue","Wed","Fri","Sat"]};
+const fmtName = {online:"Live video, anywhere in the world", inperson:"In person, Nairobi", hybrid:"Live video plus in person in Nairobi"};
+const mins = {Beginner:40, Intermediate:55, Advanced:70};
+function waLink(msg){ return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`; }
+function plan(){
+  const d = +state.days, list = splits[state.goal].slice(0,d), names = dayNames[d];
+  document.getElementById("planTitle").textContent = goalName[state.goal] + " plan";
+  document.getElementById("planMeta").textContent = `${state.level}, ${d} days a week, about ${mins[state.level]} minutes a session. ${fmtName[state.format]}.`;
+  document.getElementById("planList").innerHTML = list.map((s,i)=>`<li style="animation-delay:${i*60}ms"><b>${names[i]}</b><span>${s}</span></li>`).join("");
+  const msg = `Hi, I'd like a program. Goal: ${goalQ[state.goal]}. Level: ${state.level}. Days per week: ${d}. Format: ${fmtName[state.format]}. What is the next step?`;
+  document.getElementById("planWa").href = waLink(msg);
+  document.getElementById("waFloat").href = waLink(msg);
+  return msg;
+}
+document.querySelectorAll(".chips").forEach(g=>{
+  g.addEventListener("click", e=>{
+    const b = e.target.closest(".chip"); if(!b) return;
+    g.querySelectorAll(".chip").forEach(x=>x.setAttribute("aria-pressed", x===b));
+    state[g.dataset.key] = b.dataset.v; plan();
+  });
+});
+document.getElementById("planForm").onclick = ()=>{
+  const msg = plan();
+  document.getElementById("fGoal").value = state.goal;
+  document.getElementById("fFormat").value = state.format;
+  document.getElementById("fMsg").value = msg;
+  document.getElementById("contact").scrollIntoView({behavior: reduce ? "auto" : "smooth"});
+};
+plan();
+document.getElementById("heroWa").href = waLink("Hi, I'd like to know more about training with you.");
+document.getElementById("heroWa").target = "_blank";
+
+/* ---------- form (demo only) ---------- */
+document.getElementById("form").addEventListener("submit", e=>{
+  e.preventDefault();
+  const f = e.target;
+  if(f.website.value) return;                       // honeypot
+  if(!f.name.value.trim() || !/^\S+@\S+\.\S+$/.test(f.email.value)){ f.name.reportValidity?.(); f.email.focus(); return; }
+  document.getElementById("ok").classList.add("show");
+});
+
+/* ---------- language switcher (demo of 4 languages) ---------- */
+const I18N = {
+ en:{nav_programs:"Programs",nav_build:"Build my plan",nav_videos:"Videos",nav_contact:"Contact",cta_book:"Book",
+  hero_h1:"Strength has no time zone.",hero_sub:"Personal training from the Kenyan highlands, built around your goals, your schedule and your life, wherever you are.",hero_cta:"Book a free consultation",hero_wa:"Message on WhatsApp",frame_word:"Built at altitude.",
+  vision_h:"Train like the sun is already up.",vision_p:"Every program starts with one conversation. We learn what you want, what your week allows, and what equipment you have. Then we build sessions that fit, live, from Kenya, to wherever you are.",
+  prog_h:"Sessions built around you",build_h:"Build your program",build_p:"Four quick choices. See your starting plan, then send it straight to your coach.",
+  vid_h:"See a session",vid_p:"Short clips from real training. Swipe or use the arrows.",how_h:"From first message to first session",test_h:"Clients on four continents",faq_h:"Questions people ask first",
+  contact_h:"Start with a conversation",contact_p:"Tell us where you are and where you want to be. You will get a reply within 24 hours.",
+  f_name:"Full name",f_email:"Email",f_country:"Country",f_goal:"Your goal",f_send:"Send my request",f_ok:"Request received. Your coach will reply within 24 hours."},
+ fr:{nav_programs:"Programmes",nav_build:"Créer mon plan",nav_videos:"Vidéos",nav_contact:"Contact",cta_book:"Réserver",
+  hero_h1:"La force ne connaît pas de fuseau horaire.",hero_sub:"Coaching personnalisé depuis les hauts plateaux du Kenya, adapté à vos objectifs, à votre emploi du temps et à votre vie, où que vous soyez.",hero_cta:"Réserver une consultation gratuite",hero_wa:"Écrire sur WhatsApp",frame_word:"Forgé en altitude.",
+  vision_h:"Entraînez-vous comme si le soleil était déjà levé.",vision_p:"Chaque programme commence par une conversation. Nous découvrons vos objectifs, ce que votre semaine permet et le matériel dont vous disposez. Puis nous construisons des séances adaptées, en direct depuis le Kenya, où que vous soyez.",
+  prog_h:"Des séances construites autour de vous",build_h:"Créez votre programme",build_p:"Quatre choix rapides. Découvrez votre plan de départ, puis envoyez-le directement à votre coach.",
+  vid_h:"Découvrez une séance",vid_p:"De courts extraits de vraies séances. Faites glisser ou utilisez les flèches.",how_h:"Du premier message à la première séance",test_h:"Des clients sur quatre continents",faq_h:"Les questions qu'on nous pose d'abord",
+  contact_h:"Commençons par une conversation",contact_p:"Dites-nous où vous êtes et où vous voulez aller. Vous recevrez une réponse sous 24 heures.",
+  f_name:"Nom complet",f_email:"E-mail",f_country:"Pays",f_goal:"Votre objectif",f_send:"Envoyer ma demande",f_ok:"Demande reçue. Votre coach vous répondra sous 24 heures."},
+ de:{nav_programs:"Programme",nav_build:"Plan erstellen",nav_videos:"Videos",nav_contact:"Kontakt",cta_book:"Buchen",
+  hero_h1:"Kraft kennt keine Zeitzone.",hero_sub:"Personal Training aus dem kenianischen Hochland, zugeschnitten auf Ihre Ziele, Ihren Zeitplan und Ihr Leben, egal wo Sie sind.",hero_cta:"Kostenloses Erstgespräch buchen",hero_wa:"Per WhatsApp schreiben",frame_word:"Geformt in der Höhe.",
+  vision_h:"Trainieren Sie, als wäre die Sonne schon aufgegangen.",vision_p:"Jedes Programm beginnt mit einem Gespräch. Wir klären Ihr Ziel, was Ihre Woche zulässt und welche Ausrüstung Sie haben. Dann bauen wir passende Einheiten, live aus Kenia, dorthin, wo Sie sind.",
+  prog_h:"Training, das um Sie herum gebaut wird",build_h:"Stellen Sie Ihr Programm zusammen",build_p:"Vier schnelle Entscheidungen. Sehen Sie Ihren Startplan und senden Sie ihn direkt an Ihren Coach.",
+  vid_h:"Eine Einheit erleben",vid_p:"Kurze Clips aus echtem Training. Wischen oder Pfeile nutzen.",how_h:"Von der ersten Nachricht zur ersten Einheit",test_h:"Kunden auf vier Kontinenten",faq_h:"Die häufigsten ersten Fragen",
+  contact_h:"Beginnen wir mit einem Gespräch",contact_p:"Sagen Sie uns, wo Sie stehen und wo Sie hinwollen. Sie erhalten innerhalb von 24 Stunden eine Antwort.",
+  f_name:"Vollständiger Name",f_email:"E-Mail",f_country:"Land",f_goal:"Ihr Ziel",f_send:"Anfrage senden",f_ok:"Anfrage erhalten. Ihr Coach antwortet innerhalb von 24 Stunden."},
+ sw:{nav_programs:"Programu",nav_build:"Tengeneza mpango",nav_videos:"Video",nav_contact:"Wasiliana",cta_book:"Weka nafasi",
+  hero_h1:"Nguvu haina saa ya eneo.",hero_sub:"Mafunzo ya kibinafsi kutoka nyanda za juu za Kenya, yaliyojengwa kulingana na malengo yako, ratiba yako na maisha yako, popote ulipo.",hero_cta:"Weka mashauriano ya bure",hero_wa:"Tuma ujumbe WhatsApp",frame_word:"Imejengwa mlimani.",
+  vision_h:"Fanya mazoezi kana kwamba jua limeshachomoza.",vision_p:"Kila programu huanza na mazungumzo moja. Tunajua unachotaka, wiki yako inaruhusu nini, na vifaa ulivyo navyo. Kisha tunajenga vipindi vinavyokufaa, moja kwa moja kutoka Kenya hadi ulipo.",
+  prog_h:"Vipindi vilivyojengwa kukuzunguka wewe",build_h:"Tengeneza programu yako",build_p:"Machaguo manne ya haraka. Ona mpango wako wa kuanzia, kisha umtumie kocha wako moja kwa moja.",
+  vid_h:"Tazama kipindi",vid_p:"Klipu fupi za mazoezi halisi. Telezesha au tumia mishale.",how_h:"Kuanzia ujumbe wa kwanza hadi kipindi cha kwanza",test_h:"Wateja katika mabara manne",faq_h:"Maswali ambayo watu huuliza kwanza",
+  contact_h:"Anza kwa mazungumzo",contact_p:"Tuambie ulipo na unapotaka kufika. Utajibiwa ndani ya saa 24.",
+  f_name:"Jina kamili",f_email:"Barua pepe",f_country:"Nchi",f_goal:"Lengo lako",f_send:"Tuma ombi langu",f_ok:"Ombi limepokelewa. Kocha wako atajibu ndani ya saa 24."}
+};
+const sel = document.getElementById("lang");
+function setLang(l){
+  const d = I18N[l] || I18N.en;
+  document.documentElement.lang = l;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{ const k = el.dataset.i18n; if(d[k]) el.textContent = d[k]; });
+  sel.value = l;
+  try{ localStorage.setItem("lang", l); }catch(e){}
+}
+let start = "en";
+try{ start = localStorage.getItem("lang") || ""; }catch(e){}
+if(!I18N[start]){ const nav = (navigator.language || "en").slice(0,2); start = I18N[nav] ? nav : "en"; }
+sel.addEventListener("change", ()=>setLang(sel.value));
+setLang(start);
+</script>
+</body>
+</html>
