@@ -203,89 +203,72 @@ nav.main a:hover {
 
 /* hero */
 .hero {
-  height: 260vh;
+  position: relative;
+  height: 100vh;
+  height: 100svh;
+  min-height: 540px;
+  overflow: hidden;
   background: var(--night);
 }
 
-.stick {
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  height: 100svh;
-  overflow: hidden;
-}
-
-.bgword {
+.heroCarousel {
   position: absolute;
   inset: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 0.04em;
-  font-family: var(--display);
-  font-weight: 900;
-  text-transform: uppercase;
-  line-height: 0.9;
-  font-size: clamp(3.4rem, 13vw, 11rem);
-  color: var(--ember);
-  opacity: 0;
-  overflow: hidden;
-  will-change: opacity, transform;
 }
 
-.bgwordTrack {
-  display: flex;
-  flex-wrap: nowrap;
-  white-space: nowrap;
-  width: max-content;
-  will-change: transform;
-}
-
-.bgwordTrack--left {
-  animation: bgwordScroll 38s linear infinite;
-}
-
-.bgwordTrack--right {
-  animation: bgwordScroll 46s linear infinite reverse;
-  opacity: 0.55;
-}
-
-@keyframes bgwordScroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .bgwordTrack--left,
-  .bgwordTrack--right {
-    animation: none;
-    transform: translateX(-12%);
-  }
-}
-
-.frame {
-  position: absolute;
-  inset: 0;
-  will-change: clip-path;
-  background: #000;
-}
-
-.frame svg {
+.heroSlide {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+  user-select: none;
 }
 
-.frame::after {
+.heroSlide.active {
+  opacity: 1;
+}
+
+.heroCarousel::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(10, 15, 23, 0.88) 0%, rgba(10, 15, 23, 0.15) 55%, rgba(10, 15, 23, 0.35) 100%);
+  background: linear-gradient(to top, rgba(10, 15, 23, 0.9) 0%, rgba(10, 15, 23, 0.25) 55%, rgba(10, 15, 23, 0.5) 100%);
+}
+
+.heroDots {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: clamp(1.1rem, 4vh, 2rem);
+  z-index: 6;
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+}
+
+.heroDot {
+  width: 38px;
+  height: 4px;
+  border-radius: 999px;
+  border: 0;
+  padding: 0;
+  background: rgba(205, 219, 237, 0.4);
+  cursor: pointer;
+  transition: background 0.3s, width 0.3s;
+}
+
+.heroDot.active {
+  background: var(--ember);
+  width: 54px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroSlide {
+    transition: none;
+  }
 }
 
 .heroText {
