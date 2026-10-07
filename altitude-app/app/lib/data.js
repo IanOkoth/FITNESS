@@ -35,7 +35,7 @@ export function scene(uid, o) {
   </svg>`;
 }
 
-export const WA_NUMBER = "254700000000"; // placeholder
+export const WA_NUMBER = "254741044318"; // +254 741 044 318
 
 export function waLink(msg) {
   return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;

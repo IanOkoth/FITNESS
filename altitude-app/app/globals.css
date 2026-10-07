@@ -318,6 +318,20 @@ nav.main a:hover {
   gap: 0.8rem;
 }
 
+@media (max-width: 700px) {
+  .heroText {
+    top: clamp(5.5rem, 15vh, 8rem);
+    bottom: auto;
+  }
+  .heroText h1 {
+    font-size: clamp(2.9rem, 12vw, 4.4rem);
+    line-height: 0.92;
+  }
+  .heroText p {
+    margin: 1.1rem 0 1.4rem;
+  }
+}
+
 .caption {
   position: absolute;
   left: 0;
