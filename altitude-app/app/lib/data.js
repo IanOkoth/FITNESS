@@ -6,8 +6,8 @@ export function scene(uid, o) {
   const runner =
     o.runner == null
       ? ""
-      : `<g transform="translate(${o.runner},650)" stroke="#0d0a08" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none">
-      <circle cx="0" cy="0" r="10" fill="#0d0a08"/>
+      : `<g transform="translate(${o.runner},650)" stroke="#070d16" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <circle cx="0" cy="0" r="10" fill="#070d16"/>
       <path d="M0 14 L-8 56"/><path d="M-2 24 L-26 40 L-12 54"/><path d="M-2 24 L20 34 L34 24"/>
       <path d="M-8 56 L14 76 L8 104"/><path d="M-8 56 L-34 76 L-52 62"/>
     </g>`;
@@ -15,7 +15,7 @@ export function scene(uid, o) {
   const tree =
     o.tree == null
       ? ""
-      : `<g fill="#0d0a08" transform="translate(${o.tree},0)">
+      : `<g fill="#070d16" transform="translate(${o.tree},0)">
       <path d="M0 640 C-4 590 6 560 24 520 L34 524 C20 560 16 592 18 640Z"/>
       <ellipse cx="30" cy="506" rx="160" ry="26"/><ellipse cx="-50" cy="530" rx="90" ry="18"/><ellipse cx="120" cy="528" rx="80" ry="16"/>
     </g>`;
@@ -42,11 +42,11 @@ export function waLink(msg) {
 }
 
 export const heroSceneOptions = {
-  sky: ["#2a1a2e", "#b8431a", "#f2b134"],
-  sun: "#ffd36b",
+  sky: ["#0a1020", "#163a6e", "#3d9be0"],
+  sun: "#aee4ff",
   sx: 900,
   sy: 520,
-  r: ["#6b2f22", "#44201a", "#1d1210"],
+  r: ["#12304f", "#0d2036", "#081420"],
   tree: 1080,
   runner: 430,
   rise: true,
@@ -58,11 +58,11 @@ export const clips = [
     d: "12 sec",
     v: "/12382061_1920_1080_25fps.mp4",
     o: {
-      sky: ["#2a1a2e", "#b8431a", "#f2b134"],
-      sun: "#ffd36b",
+      sky: ["#0a1020", "#163a6e", "#3d9be0"],
+      sun: "#aee4ff",
       sx: 700,
       sy: 500,
-      r: ["#6b2f22", "#44201a", "#1d1210"],
+      r: ["#12304f", "#0d2036", "#081420"],
       runner: 900,
       tree: 260,
     },
@@ -72,11 +72,11 @@ export const clips = [
     d: "9 sec",
     v: "/200657-913478674_medium.mp4",
     o: {
-      sky: ["#1b2338", "#7a3a46", "#e07a3a"],
-      sun: "#ffb06b",
+      sky: ["#0c1424", "#2a4a7a", "#4f9fd6"],
+      sun: "#bfe6ff",
       sx: 1100,
       sy: 540,
-      r: ["#40283a", "#2c1b2b", "#150e14"],
+      r: ["#1a3350", "#111f33", "#0a1420"],
       runner: 520,
     },
   },
@@ -85,11 +85,11 @@ export const clips = [
     d: "15 sec",
     v: "/50884-462182247_medium.mp4",
     o: {
-      sky: ["#23160f", "#9a4a16", "#f2b134"],
-      sun: "#ffe08a",
+      sky: ["#0a0f1e", "#1f4f86", "#58b0e6"],
+      sun: "#d0ecff",
       sx: 500,
       sy: 520,
-      r: ["#5c3217", "#3a200f", "#180e08"],
+      r: ["#17344f", "#0f2236", "#0a141f"],
       tree: 1150,
     },
   },
@@ -98,11 +98,11 @@ export const clips = [
     d: "10 sec",
     v: "/6115230-hd_1920_1080_25fps.mp4",
     o: {
-      sky: ["#16262a", "#4a6a5a", "#e8c98a"],
-      sun: "#f6e3a8",
+      sky: ["#0c1a26", "#245f74", "#7fd0e8"],
+      sun: "#cfeeff",
       sx: 850,
       sy: 500,
-      r: ["#38503f", "#263a2e", "#101a14"],
+      r: ["#153d4a", "#0e2831", "#0a1820"],
       tree: 320,
       runner: 1100,
     },
@@ -112,11 +112,11 @@ export const clips = [
     d: "8 sec",
     v: "/65163-513048313_medium.mp4",
     o: {
-      sky: ["#1a1210", "#6a2418", "#d4541c"],
-      sun: "#ff8a4a",
+      sky: ["#0a1020", "#1d3f73", "#2b8bff"],
+      sun: "#8fd0ff",
       sx: 1000,
       sy: 520,
-      r: ["#4a1c14", "#2e120e", "#120806"],
+      r: ["#142e4f", "#0d1f36", "#0a1420"],
       runner: 700,
     },
   },
@@ -125,11 +125,11 @@ export const clips = [
     d: "14 sec",
     v: "/15080064_1080_1920_30fps.mp4",
     o: {
-      sky: ["#2a1a2e", "#a63a2a", "#f2b134"],
-      sun: "#ffc55a",
+      sky: ["#0a1020", "#163a6e", "#3d9be0"],
+      sun: "#aee4ff",
       sx: 600,
       sy: 530,
-      r: ["#5a2a2a", "#3a1a1c", "#170d0e"],
+      r: ["#12304f", "#0d2036", "#081420"],
       runner: 1250,
       tree: 200,
     },

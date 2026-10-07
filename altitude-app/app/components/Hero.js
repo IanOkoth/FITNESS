@@ -13,6 +13,7 @@ export default function Hero() {
     if (frameRef.current) {
       frameRef.current.innerHTML = `
         <video autoPlay loop muted playsInline style="width: 100%; height: 100%; object-fit: cover; display: block;">
+          <source src="/15774105_3840_2160_30fps.webm" type="video/webm" />
           <source src="/15774105_3840_2160_30fps.mp4" type="video/mp4" />
         </video>
       `;

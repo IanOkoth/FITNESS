@@ -115,7 +115,7 @@ export default function Videos() {
                 playsInline
               />
               <span className="play">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="#e8d9bf">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="#dde8f5">
                   <path d="M7 4l13 8-13 8z" />
                 </svg>
               </span>
