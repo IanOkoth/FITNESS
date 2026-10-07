@@ -6,10 +6,12 @@ import Builder from "./components/Builder";
 import Videos from "./components/Videos";
 import HowItWorks from "./components/HowItWorks";
 import Stories from "./components/Stories";
+import Shop from "./components/Shop";
 import FAQ from "./components/FAQ";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import WhatsAppFloat from "./components/WhatsAppFloat";
+import CartDrawer from "./components/CartDrawer";
 
 export default function Home() {
   return (
@@ -31,11 +33,13 @@ export default function Home() {
         <Videos />
         <HowItWorks />
         <Stories />
+        <Shop />
         <FAQ />
         <Contact />
       </main>
       <Footer />
       <WhatsAppFloat />
+      <CartDrawer />
     </>
   );
 }

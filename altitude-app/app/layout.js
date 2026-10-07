@@ -1,4 +1,5 @@
 import "./globals.css";
+import { CartProvider } from "./components/CartProvider";
 
 export const metadata = {
   title: "Altitude | Personal Training from Kenya",
@@ -18,7 +19,9 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <CartProvider>{children}</CartProvider>
+      </body>
     </html>
   );
 }
