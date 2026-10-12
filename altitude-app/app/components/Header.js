@@ -5,7 +5,7 @@ export default function Header() {
     <header className="top">
       <div className="wrap">
         <a className="logo" href="#top" aria-label="Voltage Fitness home">
-          <i></i>VOLTAGE
+          <img src="/logo.jpeg" alt="" width="1129" height="489" />
         </a>
         <nav className="main" aria-label="Main">
           <a href="#programs">Programs</a>

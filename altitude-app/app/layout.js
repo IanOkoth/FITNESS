@@ -2,9 +2,18 @@ import "./globals.css";
 import { CartProvider } from "./components/CartProvider";
 
 export const metadata = {
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"
+  ),
   title: "Voltage Fitness | Personal Training from Kenya",
   description:
     "Personal training from the Kenyan highlands, built around your goals, your schedule and your life, wherever you are. Strength, fat loss, running, mobility — online or in person.",
+  openGraph: {
+    title: "Voltage Fitness | Personal Training from Kenya",
+    description:
+      "Personal training from the Kenyan highlands, built around your goals, your schedule and your life, wherever you are.",
+    images: [{ url: "/logo.jpeg", width: 1129, height: 489, alt: "Voltage Fitness" }],
+  },
 };
 
 export default function RootLayout({ children }) {

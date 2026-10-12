@@ -3,7 +3,14 @@ export default function Footer() {
     <footer>
       <div className="wrap">
         <div>
-          <strong style={{ color: "var(--sand)" }}>VOLTAGE FITNESS</strong>
+          <img
+            className="footerLogo"
+            src="/logo.jpeg"
+            alt="Voltage Fitness"
+            width="1129"
+            height="489"
+            loading="lazy"
+          />
           <br />
           Personal training from Kenya, for the world.
         </div>

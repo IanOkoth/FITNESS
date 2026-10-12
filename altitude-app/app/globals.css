@@ -154,23 +154,25 @@ header.top {
 }
 
 .logo {
-  font-family: var(--display);
-  font-weight: 900;
-  font-size: 1.7rem;
-  letter-spacing: 0.04em;
   text-decoration: none;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
 }
 
-.logo i {
+/* the mark ships on a black field; screen blending drops it into the dark chrome */
+.logo img {
   display: block;
-  width: 0;
-  height: 0;
-  border-left: 11px solid transparent;
-  border-right: 11px solid transparent;
-  border-bottom: 18px solid var(--ember);
+  height: 40px;
+  width: auto;
+  mix-blend-mode: screen;
+}
+
+.footerLogo {
+  display: block;
+  height: 44px;
+  width: auto;
+  margin-bottom: 0.6rem;
+  mix-blend-mode: screen;
 }
 
 nav.main {
@@ -1125,6 +1127,9 @@ footer .wrap {
   }
   .wa {
     padding: 0.85rem;
+  }
+  .logo img {
+    height: 32px;
   }
 }
 
